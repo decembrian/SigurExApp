@@ -9,34 +9,34 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Departments")
+@Table(name = "departments")
 public class Department {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long ID;
-	private String Name;
+	private Long id;
+	private String name;
 	
 	public Department() {
 	}
 	
 	public Department(String name) {
-		Name = name;
+		this.name = name;
 	}
 	
 	public Long getID() {
-		return ID;
+		return id;
 	}
-	public String getNAME() {
-		return Name;
+	public String getName() {
+		return this.name;
 	}
-	public void setNAME(String name) {
-		Name = name;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(Name);
+		return Objects.hash(this.name);
 	}
 
 	@Override
@@ -48,11 +48,11 @@ public class Department {
 		if (getClass() != obj.getClass())
 			return false;
 		Department other = (Department) obj;
-		return Objects.equals(Name, other.Name);
+		return Objects.equals(this.name, other.name);
 	}
 
 	@Override
 	public String toString() {
-		return "Department [Name=" + Name + "]";
+		return "Department [Name=" + name + "]";
 	}
 }

@@ -1,4 +1,4 @@
-package tespapp.controllers;
+/*package tespapp.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,4 +23,4 @@ public class EmployeeHireLogger implements Runnable{
 		
 		System.out.println(listOfEmployee.size());
 	}
-}
+}*/

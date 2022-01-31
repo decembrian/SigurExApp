@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Employees")
+@Table(name = "employees")
 public class Employee{
 	
 	@Id
@@ -35,6 +35,10 @@ public class Employee{
 		this.hireDate = hireDate;
 		this.firedDate = firedDate;
 		this.departmentId = departmentId;
+	}
+
+	public long getID() {
+		return ID;
 	}
 
 	public LocalDate getHireDate() {
@@ -61,5 +65,26 @@ public class Employee{
 		this.departmentId = departmentId;
 	}
 
+	@Override
+	public String toString() {
+		return "Employee{" +
+				"ID=" + ID +
+				", hireDate=" + hireDate +
+				", firedDate=" + firedDate +
+				", departmentId=" + departmentId +
+				'}';
+	}
 
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Employee employee = (Employee) o;
+		return ID == employee.ID && departmentId == employee.departmentId && Objects.equals(hireDate, employee.hireDate) && Objects.equals(firedDate, employee.firedDate);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(ID, hireDate, firedDate, departmentId);
+	}
 }

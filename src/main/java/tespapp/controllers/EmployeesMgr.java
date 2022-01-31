@@ -1,4 +1,4 @@
-package tespapp.controllers;
+/*package tespapp.controllers;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -40,8 +40,8 @@ public class EmployeesMgr implements Runnable{
 		while(currentDate.compareTo(endDate) != 1) {
 			//hiring process
 			Employee employee = new Employee();
-			employee.setHIRE_TIME(currentDate);
-			employee.setDEPARTMENT_ID((departmentRepository.findById(random.nextLong(9) + 1)).get().getID());
+			employee.setHireDate(currentDate);
+			employee.setDepartmentId((departmentRepository.findById(random.nextLong(9) + 1)).get().getID());
 			employeeRepository.save(employee);
 			
 			counter += 1;
@@ -69,4 +69,4 @@ public class EmployeesMgr implements Runnable{
 		listOfEmployee = employeeRepository.findAll();
 		return listOfEmployee;
 	}
-}
+}*/
