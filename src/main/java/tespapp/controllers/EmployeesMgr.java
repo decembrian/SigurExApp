@@ -1,14 +1,10 @@
 package tespapp.controllers;
 
 import java.time.LocalDate;
-import java.util.List;
-import java.util.Random;
 
 import org.springframework.stereotype.Component;
 
-import tespapp.entities.Department;
 import tespapp.entities.Employee;
-import tespapp.services.DepartmentRepository;
 import tespapp.services.EmployeeRepository;
 
 @Component
@@ -16,15 +12,12 @@ public class EmployeesMgr implements Runnable{
 	
 	private final LocalDate startDate = LocalDate.of(2022, 1, 1);
 	private final LocalDate endDate = LocalDate.of(2022, 12, 31);
-	//private final int numberOfDepartment = 10;
 	
 	private final EmployeeRepository employeeRepository;
-	private final DepartmentRepository departmentRepository;
 	
-	public EmployeesMgr(EmployeeRepository employeeRepository, DepartmentRepository departmentRepository) {
+	public EmployeesMgr(EmployeeRepository employeeRepository) {
 		super();
 		this.employeeRepository = employeeRepository;
-		this.departmentRepository = departmentRepository;
 	}
 
 	@Override

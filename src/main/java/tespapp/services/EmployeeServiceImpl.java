@@ -19,9 +19,8 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     Random random = new Random();
-}
 	
-	/*@Override
+	@Override
 	public Optional<Employee> findByRandomId(long id) {
 		long numberOfEmployee = employeeRepository.count();
 		return employeeRepository.findById(random.nextLong(numberOfEmployee) + 1);
@@ -33,4 +32,4 @@ public class EmployeeServiceImpl implements EmployeeService {
 		employee.get().setFiredDate(fired_time);
 		employeeRepository.save(Employee.class.cast(employee));
 	}
-}*/
+}
