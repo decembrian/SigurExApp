@@ -85,8 +85,6 @@ public class Employee{
 
 	@Override
 	public int hashCode() {
-		if(firedDate != null) {
-			return Objects.hash(ID, hireDate, firedDate, departmentId);
-		}else return Objects.hash(ID, hireDate, departmentId);
+		return Objects.hash(ID, hireDate, firedDate, departmentId);
 	}
 }
