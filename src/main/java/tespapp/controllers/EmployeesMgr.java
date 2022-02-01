@@ -1,4 +1,4 @@
-/*package tespapp.controllers;
+package tespapp.controllers;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -16,7 +16,7 @@ public class EmployeesMgr implements Runnable{
 	
 	private final LocalDate startDate = LocalDate.of(2022, 1, 1);
 	private final LocalDate endDate = LocalDate.of(2022, 12, 31);
-	private final int numberOfDepartment = 10;
+	//private final int numberOfDepartment = 10;
 	
 	private final EmployeeRepository employeeRepository;
 	private final DepartmentRepository departmentRepository;
@@ -26,10 +26,10 @@ public class EmployeesMgr implements Runnable{
 		this.employeeRepository = employeeRepository;
 		this.departmentRepository = departmentRepository;
 	}
-	
+
 	@Override
 	public void run() {
-		for(int i = 1; i <= numberOfDepartment; i++) {
+		/*for(int i = 1; i <= numberOfDepartment; i++) {
 			departmentRepository.save(new Department(Integer.toString(i)));
 		}
 		
@@ -62,11 +62,14 @@ public class EmployeesMgr implements Runnable{
 					employeeRepository.setEmployeeFiredById(randomId, currentDate);
 				}
 			}
-		}
+		}*/
+
+        Employee employee = new Employee(startDate, endDate, 2);
+        employeeRepository.save(employee);
 	}
 	
-	public List<Employee> getListOfEmployee(List<Employee> listOfEmployee){
+	/*public List<Employee> getListOfEmployee(List<Employee> listOfEmployee){
 		listOfEmployee = employeeRepository.findAll();
 		return listOfEmployee;
-	}
-}*/
+	}*/
+}

@@ -1,4 +1,4 @@
-/*package tespapp.services;
+package tespapp.services;
 
 import java.time.LocalDate;
 import java.util.Optional;
@@ -9,22 +9,23 @@ import org.springframework.stereotype.Service;
 import tespapp.entities.Employee;
 
 @Service
-public class EmployeeServiceImpl implements EmployeeService{
+public class EmployeeServiceImpl implements EmployeeService {
+
+    private final EmployeeRepositoryBasic employeeRepository;
+
+    public EmployeeServiceImpl(EmployeeRepositoryBasic employeeRepository) {
+        super();
+        this.employeeRepository = employeeRepository;
+    }
+
+    Random random = new Random();
+}
 	
-	private final EmployeeRepositoryBasic employeeRepository;
-	
-	public EmployeeServiceImpl(EmployeeRepositoryBasic employeeRepository) {
-		super();
-		this.employeeRepository = employeeRepository;
-	}
-	
-	Random random = new Random();
-	
-	*//*@Override
+	/*@Override
 	public Optional<Employee> findByRandomId(long id) {
 		long numberOfEmployee = employeeRepository.count();
 		return employeeRepository.findById(random.nextLong(numberOfEmployee) + 1);
-	}*//*
+	}
 
 	@Override
 	public void setEmployeeFiredById(long id, LocalDate fired_time) {
