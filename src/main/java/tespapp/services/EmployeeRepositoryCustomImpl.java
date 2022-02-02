@@ -6,14 +6,16 @@ import java.util.Random;
 
 import org.springframework.stereotype.Service;
 
+import org.springframework.transaction.annotation.Transactional;
 import tespapp.entities.Employee;
 
-@Service
-public class EmployeeServiceImpl implements EmployeeService {
+@Transactional
+@Service("employeeService")
+public class EmployeeRepositoryCustomImpl implements EmployeeRepositoryCustom{
 
-    private final EmployeeRepositoryBasic employeeRepository;
+    private final EmployeeRepository employeeRepository;
 
-    public EmployeeServiceImpl(EmployeeRepositoryBasic employeeRepository) {
+    public EmployeeRepositoryCustomImpl(EmployeeRepository employeeRepository) {
         super();
         this.employeeRepository = employeeRepository;
     }

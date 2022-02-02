@@ -1,32 +1,37 @@
 package tespapp.controllers;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 import org.springframework.stereotype.Component;
 
+import tespapp.entities.Department;
 import tespapp.entities.Employee;
+import tespapp.services.DepartmentRepository;
 import tespapp.services.EmployeeRepository;
 
 @Component
-public class EmployeesMgr implements Runnable{
-	
+public class EmployeesMgr implements Runnable {
+
 	private final LocalDate startDate = LocalDate.of(2022, 1, 1);
 	private final LocalDate endDate = LocalDate.of(2022, 12, 31);
-	
+
 	private final EmployeeRepository employeeRepository;
-	
-	public EmployeesMgr(EmployeeRepository employeeRepository) {
-		super();
+	private final DepartmentRepository departmentRepository;
+
+
+	public EmployeesMgr(EmployeeRepository employeeRepository, DepartmentRepository departmentRepository) {
 		this.employeeRepository = employeeRepository;
+		this.departmentRepository = departmentRepository;
 	}
+
+	public List<Department> departments = new ArrayList<>() ;
 
 	@Override
 	public void run() {
-		/*for(int i = 1; i <= numberOfDepartment; i++) {
-			departmentRepository.save(new Department(Integer.toString(i)));
-		}
-		
-		Random random = new Random();
+		/*Random random = new Random();
 		int counter = 0;
 		LocalDate currentDate = startDate;
 		
@@ -56,11 +61,7 @@ public class EmployeesMgr implements Runnable{
 				}
 			}
 		}*/
-
-        Employee employee = new Employee(startDate, endDate, 2);
-        employeeRepository.save(employee);
 	}
-	
 	/*public List<Employee> getListOfEmployee(List<Employee> listOfEmployee){
 		listOfEmployee = employeeRepository.findAll();
 		return listOfEmployee;
