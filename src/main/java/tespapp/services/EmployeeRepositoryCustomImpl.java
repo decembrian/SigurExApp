@@ -1,9 +1,11 @@
 package tespapp.services;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.Optional;
 import java.util.Random;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import org.springframework.transaction.annotation.Transactional;
@@ -14,7 +16,7 @@ import tespapp.entities.Employee;
 public class EmployeeRepositoryCustomImpl implements EmployeeRepositoryCustom{
 
     private final EmployeeRepository employeeRepository;
-
+	@Autowired
     public EmployeeRepositoryCustomImpl(EmployeeRepository employeeRepository) {
         super();
         this.employeeRepository = employeeRepository;
@@ -22,16 +24,16 @@ public class EmployeeRepositoryCustomImpl implements EmployeeRepositoryCustom{
 
     Random random = new Random();
 	
-	@Override
+	/*@Override
 	public Optional<Employee> findByRandomId(long id) {
 		long numberOfEmployee = employeeRepository.count();
 		return employeeRepository.findById(random.nextLong(numberOfEmployee) + 1);
-	}
+	}*/
 
-	@Override
+	/*@Override
 	public void setEmployeeFiredById(long id, LocalDate fired_time) {
 		Optional<Employee> employee = employeeRepository.findById(id);
 		employee.get().setFiredDate(fired_time);
 		employeeRepository.save(Employee.class.cast(employee));
-	}
+	}*/
 }

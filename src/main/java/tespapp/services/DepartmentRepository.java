@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import tespapp.entities.Department;
 
 @Repository("departmentRepository")
-public interface DepartmentRepository extends JpaRepository<Department, Long> {
+public interface DepartmentRepository extends JpaRepository<Department, Long>{
 }

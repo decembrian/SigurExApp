@@ -1,4 +1,4 @@
-/*package tespapp.controllers;
+package tespapp.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,9 +18,13 @@ public class EmployeeHireLogger implements Runnable{
 
 	@Override
 	public void run() {
-		List<Employee> listOfEmployee = new ArrayList<Employee>();
-		employeesMgr.getListOfEmployee(listOfEmployee);
-		
-		System.out.println(listOfEmployee.size());
+		/*for(int i = 1; i <= 10; i++){
+			System.out.println(i);
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}*/
 	}
-}*/
+}
