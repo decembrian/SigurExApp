@@ -5,35 +5,33 @@ import java.time.temporal.ChronoUnit;
 import java.util.Optional;
 import java.util.Random;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.context.annotation.Lazy;
 import tespapp.entities.Employee;
 
-@Transactional
-@Service("employeeService")
 public class EmployeeRepositoryCustomImpl implements EmployeeRepositoryCustom{
 
     private final EmployeeRepository employeeRepository;
-	@Autowired
-    public EmployeeRepositoryCustomImpl(EmployeeRepository employeeRepository) {
-        super();
-        this.employeeRepository = employeeRepository;
-    }
 
     Random random = new Random();
-	
-	/*@Override
-	public Optional<Employee> findByRandomId(long id) {
-		long numberOfEmployee = employeeRepository.count();
-		return employeeRepository.findById(random.nextLong(numberOfEmployee) + 1);
-	}*/
+	LocalDate endDate = LocalDate.of(2022, 12, 31);
 
-	/*@Override
+	public EmployeeRepositoryCustomImpl(@Lazy EmployeeRepository employeeRepository) {
+		this.employeeRepository = employeeRepository;
+	}
+
+	@Override
+	public LocalDate getByRandomDate(LocalDate hireDate) {
+		if(Math.random() < 0.5){
+			long days = ChronoUnit.DAYS.between(hireDate, endDate);
+			long rndDate = random.nextLong(days) + 1;
+			return hireDate.plusDays(rndDate);
+		}else return hireDate;
+	}
+
+	@Override
 	public void setEmployeeFiredById(long id, LocalDate fired_time) {
 		Optional<Employee> employee = employeeRepository.findById(id);
-		employee.get().setFiredDate(fired_time);
+		employee.ifPresent(e -> e.setFiredDate(fired_time));
 		employeeRepository.save(Employee.class.cast(employee));
-	}*/
+	}
 }

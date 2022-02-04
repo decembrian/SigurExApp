@@ -1,9 +1,8 @@
 package tespapp.controllers;
 
 import java.time.LocalDate;
-import java.time.Period;
+import java.util.Optional;
 import java.util.Random;
-
 import org.springframework.stereotype.Component;
 
 import tespapp.entities.Employee;
@@ -16,11 +15,8 @@ public class EmployeesMgr implements Runnable {
 	private final LocalDate startDate = LocalDate.of(2022, 1, 1);
 	private final LocalDate endDate = LocalDate.of(2022, 12, 31);
 
-	Period period = Period.between(startDate, endDate);
-
 	private final EmployeeRepository employeeRepository;
 	private final DepartmentRepository departmentRepository;
-
 
 	public EmployeesMgr(EmployeeRepository employeeRepository, DepartmentRepository departmentRepository) {
 		this.employeeRepository = employeeRepository;
@@ -48,20 +44,17 @@ public class EmployeesMgr implements Runnable {
 				e.printStackTrace();
 			}
 			
-			
+
 			//fired process
-			/*if(counter % 5 == 0) {
+			if(counter % 5 == 0) {
 				int numberOfFiredEmployees = random.nextInt(3) + 1;
 				long numberOfEmployee = employeeRepository.count();
 				for(int i = 1; i <=numberOfFiredEmployees; i++) {
 					long randomId = random.nextLong(numberOfEmployee) + 1;
-					employeeRepository.setEmployeeFiredById(randomId, currentDate);
+					employeeRepository.setEmployeeFiredById(randomId,
+							employeeRepository.getByRandomDate(currentDate));
 				}
-			}*/
+			}
 		}
 	}
-	/*public List<Employee> getListOfEmployee(List<Employee> listOfEmployee){
-		listOfEmployee = employeeRepository.findAll();
-		return listOfEmployee;
-	}*/
 }
