@@ -1,18 +1,14 @@
 package tespapp.entities;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "employees")
-public class Employee{
+public class Employee implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,6 +22,8 @@ public class Employee{
 
 	@Column(name = "department_id")
 	private long departmentId;
+
+	private String employeeDepartmentName;
 
 	public Employee() {
 
@@ -62,6 +60,14 @@ public class Employee{
 
 	public void setDepartmentId(long departmentId) {
 		this.departmentId = departmentId;
+	}
+
+	public String getEmployeeDepartmentName() {
+		return employeeDepartmentName;
+	}
+
+	public void setEmployeeDepartmentName(String employeeDepartmentName) {
+		this.employeeDepartmentName = employeeDepartmentName;
 	}
 
 	@Override

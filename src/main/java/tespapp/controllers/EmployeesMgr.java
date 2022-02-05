@@ -34,8 +34,11 @@ public class EmployeesMgr implements Runnable {
 			//hiring process
 			Employee employee = new Employee(employeeRepository.getByRandomDate(currentDate),
 						departmentRepository.findById(random.nextLong(9) + 1).get().getID());
+			employee.setEmployeeDepartmentName(departmentRepository.findById(employee.getDepartmentId()).get().getDepartmentName());
 			employeeRepository.save(employee);
 
+			System.out.println("Current date: " + currentDate + ". Employee ID: " + employee.getID() + ", Hire Date: " + employee.getHireDate()
+							+ ", Department name: " + employee.getEmployeeDepartmentName());
 			counter += 1;
 			currentDate = currentDate.plusDays(1);
 			try {
